@@ -2,6 +2,7 @@ package ContactsManager;
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.Scanner;
 
 public class App {
     static List<Person> people = new ArrayList<>();
+
         //this method will add a person to our array list
     public static void addPerson() throws IOException {
         Scanner scan = new Scanner(System.in);
@@ -55,10 +57,26 @@ public class App {
             }
         }
     }
+//    This meathod
+    public static void deleteContacts(){
+        System.out.println("Which contact would you like to delete?");
+        Scanner sc = new Scanner(System.in);
+        String deleteName = sc.nextLine();
+        Path filepath = Paths.get("data", "contact.txt");
+
+        if (person.getName().equalsIgnoreCase(deleteName)) {
+
+
+        }else{
+                System.out.println("Sorry there in no person in your contacts by that name.");
+            }
+//        }
+        System.out.println("Person you deleted was " + deleteName);
+    }
 
     public static void main(String[] args) throws IOException {
 
-
+        deleteContacts();
         //basic UI main menu
 
         addPerson();
