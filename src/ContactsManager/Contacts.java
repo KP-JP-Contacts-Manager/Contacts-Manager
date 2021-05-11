@@ -38,10 +38,7 @@ public class Contacts {
             //Start creating array to push our contacts into
             List<String> contacts = Arrays.asList("Kelvon Patterson", "John Pierce");
 
-            //basic UI main menu
-            Scanner sc = new Scanner(System.in);
-            System.out.println("1. View contacts");
-            System.out.println("2. Add a new contact");
+
 
 
 
