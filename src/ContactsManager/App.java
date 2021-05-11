@@ -39,6 +39,7 @@ public class App {
         System.out.println("3. Search a contact by name");
         System.out.println("4. Delete an existing contact");
         System.out.println("5. Exit");
+
         System.out.println("Enter an option (1, 2, 3, 4, or 5 ) :");
     }
     //This method will allow us to search a user by their name and return the output
