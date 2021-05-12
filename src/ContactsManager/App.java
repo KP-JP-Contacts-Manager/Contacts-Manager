@@ -2,6 +2,7 @@ package ContactsManager;
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
@@ -12,23 +13,23 @@ import java.util.Scanner;
 public class App {
     static List<Person> people = new ArrayList<>();
         //this method will add a person to our array list
-    public static void addPerson() throws IOException {
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Add a new contact name: ");
-        String name = scan.nextLine();
-        System.out.println("Add this contact's phone number: ");
-        String number= scan.nextLine();
+        public static void addPerson() throws IOException {
+            Scanner scan = new Scanner(System.in);
+            System.out.println("Add a new contact name: ");
+            String name = scan.nextLine();
+            System.out.println("Add this contact's phone number: ");
+            String number= scan.nextLine();
 
-        Person person = new Person(name, number);
+            Person person = new Person(name, number);
+            people.add(person);
+            Files.write(
+                    Paths.get("./src/ContactsManager/data", "contacts.txt"),
+                    Arrays.asList(name +" | " +number + " |"), // list with one item
+                    StandardOpenOption.APPEND
+            );
 
-        Files.write(
-                Paths.get("./src/ContactsManager/data", "contacts.txt"),
-                Arrays.asList(name +" | " +number + " |"), // list with one item
-                StandardOpenOption.APPEND
-        );
 
-
-    }
+        }
     //This method will allow us to return to the main menu
     public static void mainMenu() {
         Scanner sc = new Scanner(System.in);
@@ -47,15 +48,26 @@ public class App {
         System.out.println("Enter a name to search");
         Scanner sc = new Scanner(System.in);
         String nameToFind = sc.nextLine();
-        for(Person person:people){
+        for(Person person : people){
+
             if (person.getName().equalsIgnoreCase(nameToFind)) {
-                System.out.println(person);
+                System.out.println("Here is the name of the " + person.getName());
             }else{
                 System.out.println("Sorry there in no person in your contacts by that name.");
             }
+            System.out.println("Sor");
         }
     }
 
+    public static List<String> contactInfoList(Path contactsTxtPath){
+        List<String> info = new ArrayList<>();
+        try {
+            info = Files.readAllLines(contactsTxtPath);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return info;
+    }
     public static void main(String[] args) throws IOException {
 
 
