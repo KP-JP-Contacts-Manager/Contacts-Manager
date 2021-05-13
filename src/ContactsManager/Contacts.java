@@ -36,7 +36,7 @@ public class Contacts {
             Path contactsTxtPath = Paths.get(directory,fileName);
 
             //Start creating array to push our contacts into
-            List<String> contacts = Arrays.asList("Kelvon Patterson", "John Pierce");
+            List<String> contacts = Arrays.asList();
 
 
 
