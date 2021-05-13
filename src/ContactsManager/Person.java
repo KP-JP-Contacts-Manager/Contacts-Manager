@@ -1,17 +1,10 @@
 package ContactsManager;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
-import java.util.Arrays;
-import java.util.Scanner;
-
 public class Person {
     private String name;
-    private  String number;
+    private long number;
 
-    Person(String name, String number){
+    Person(String name, long number){
         this.name = name;
         this.number= number;
     }
@@ -20,17 +13,17 @@ public class Person {
         return name;
     }
 
-    public String getNumber() {
+    public long getNumber() {
         return number;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+//    public void setName(String name) {
+//        this.name = name;
+//    }
 
-    public void setNumber(String number) {
-        this.number = number;
-    }
+//    public void setNumber(String number) {
+//        this.number = number;
+//    }
 
 
 }
